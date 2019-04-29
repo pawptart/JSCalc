@@ -80,3 +80,22 @@ body {
 	font-size: 45px;
 	text-shadow: 1px 1px 1px #000;
 }
+
+.icon-container ul {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	list-style-type: none;
+}
+
+.icon a {
+	color: #D1913C;
+	text-decoration: none;
+}
+
+.icon {
+	display: inline-block;
+	text-shadow: 1px 1px 1px #000;
+	padding-right: 10px;
+}
+
