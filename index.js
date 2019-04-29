@@ -17,34 +17,29 @@
 			operators = el('.operator'),
 			firstNum = "",
 			secondNum = "",
-			result,
+			result = null,
 			operator = "";
-			
+
 	
 	// Click event functions
 	var setNum = function() {
-		if (! result > 0) {
 			secondNum += this.getAttribute("data-num");
+			
 			display(secondNum);
-		}
 	}
 
 
 	// Detect which function key was pressed
 	var setOperator = function() {
 		operator = this.innerText;
-		if (firstNum.length > 0 && secondNum.length > 0 && operator != '') {
-			evaluateResult;
-		} else if (result > 0) {
-			console.log(`result was ${result}!`);
-			firstNum = result;
-			secondNum = '';
-			display(secondNum);
-		} else {
+		if (!result) {
 			firstNum = secondNum;
-			secondNum = '';
-			display(secondNum);			
 		}
+		secondNum = '';
+		console.log(`FirstNum = ${firstNum}`);
+		console.log(`SecondNum = ${secondNum}`);
+		console.log(`result = ${result}`);
+		display(secondNum);
 	}
 
 
@@ -69,8 +64,14 @@
 					break;
 				default:
 					result = "ERROR!";
-			}
+			} 
 
+			if (result != "ERROR!") {
+				firstNum = result.toString();
+			} else {
+				setTimeout(clrAll, 3000);
+			}
+			secondNum = '';
 			display(result);
 		}
 	}
@@ -81,11 +82,13 @@
 		if (firstNum > 0 && secondNum > 0) {
 			secondNum = firstNum;
 			firstNum = '';
-			operator = ''
+			operator = '';
+			result = '';
 		} else {
 			secondNum = '';
 			firstNum = '';
 			operator = '';
+			result = '';
 		}
 
 		display(secondNum);
@@ -124,5 +127,4 @@
 		window.innerText = number;
 	}
 	
-
 }());
