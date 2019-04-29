@@ -12,7 +12,7 @@ body {
 
 .calc-wrapper {
 	margin: auto;
-	margin-top: 5%;
+	margin-top: 3%;
 	width: 25%;
 	border-radius: 10px;
 	padding-bottom: 10px;
@@ -66,4 +66,17 @@ body {
 
 .operator {
 	background-color: #B5B5B5;
+}
+
+.navbar {
+	background-color: rgba(0,0,0,0.4);
+	height: 85px;
+	text-align: center;
+}
+
+.logo {
+	font-family: 'Pacifico', cursive;
+	color: #D1913C;
+	font-size: 45px;
+	text-shadow: 1px 1px 1px #000;
 }

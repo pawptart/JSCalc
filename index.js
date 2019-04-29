@@ -63,14 +63,13 @@
 					result = firstNum * secondNum;
 					break;
 				default:
-					result = "ERROR!";
+					result = "error!";
 			} 
 
-			if (result != "ERROR!") {
+			if (result != "error!") {
 				firstNum = result.toString();
-			} else {
-				setTimeout(clrAll, 3000);
-			}
+			} 
+
 			secondNum = '';
 			display(result);
 		}
@@ -125,6 +124,10 @@
 	// Display values
 	function display(number) {
 		window.innerText = number;
+		if (number > 99999999 || number.length > 8) {
+			window.innerText = "overflow";
+			setTimeout(clrAll, 3000);
+		}
 	}
 	
 }());
