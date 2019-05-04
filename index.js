@@ -118,12 +118,6 @@
 	// Display values
 	function display(number) {
 		
-		console.log(number);
-		if (number == NaN) {
-			window.innerText = "error";
-			setTimeout(clrAll, 3000);
-		}
-
 		if (number > 99999999 || number.length > 8) {
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
