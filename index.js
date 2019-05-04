@@ -36,9 +36,6 @@
 			firstNum = secondNum;
 		}
 		secondNum = '';
-		console.log(`FirstNum = ${firstNum}`);
-		console.log(`SecondNum = ${secondNum}`);
-		console.log(`result = ${result}`);
 		display(secondNum);
 	}
 
@@ -123,11 +120,24 @@
 
 	// Display values
 	function display(number) {
-		window.innerText = number;
+		
 		if (number > 99999999 || number.length > 8) {
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
+		} else if ( number % 1 != 0 ) {
+			integer = Math.floor(number);
+			
+			if (integer.toString().length < 7) {
+				decimal = "." + (number % 1).toString().slice(2, 9 - integer.toString().length);
+			} else {
+				decimal = "";
+			}
+
+			window.innerText = integer + decimal
+		} else {
+			window.innerText = number;
 		}
+
 	}
 	
 }());
