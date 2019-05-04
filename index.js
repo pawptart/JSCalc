@@ -22,6 +22,10 @@
 	// Click event functions
 	var setNum = function() {
 			secondNum += this.getAttribute("data-num");
+
+			if (secondNum == ".") {
+				secondNum = "0.";
+			} 	
 			
 			display(secondNum);
 	}
@@ -114,6 +118,12 @@
 	// Display values
 	function display(number) {
 		
+		console.log(number);
+		if (number == NaN) {
+			window.innerText = "error";
+			setTimeout(clrAll, 3000);
+		}
+
 		if (number > 99999999 || number.length > 8) {
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
@@ -121,12 +131,18 @@
 			integer = Math.floor(number);
 
 			if (integer.toString().length < 7) {
-				decimal = "." + (number % 1).toString().slice(2, 9 - integer.toString().length);
+				decimal = "." + (number % 1).toPrecision(number.length - 2).toString().slice(2, 9 - integer.toString().length);
 			} else {
 				decimal = "";
 			}
 
-			window.innerText = integer + decimal
+			if (integer && decimal) {
+				window.innerText = integer + decimal;
+			} else {
+				window.innerText = "error";
+				setTimeout(clrAll, 3000);
+			}			
+			
 		} else {
 			window.innerText = number;
 		}
