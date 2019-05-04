@@ -122,20 +122,8 @@
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
 		} else if ( number % 1 != 0 ) {
-			integer = Math.floor(number);
-
-			if (integer.toString().length < 7) {
-				decimal = "." + (number % 1).toPrecision(number.length - 2).toString().slice(2, 9 - integer.toString().length);
-			} else {
-				decimal = "";
-			}
-
-			if (integer && decimal) {
-				window.innerText = integer + decimal;
-			} else {
-				window.innerText = "error";
-				setTimeout(clrAll, 3000);
-			}			
+			number = number.toString().slice(0, 8);
+			window.innerText = number;
 			
 		} else {
 			window.innerText = number;
