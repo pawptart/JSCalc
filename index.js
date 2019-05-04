@@ -118,7 +118,7 @@
 	// Display values
 	function display(number) {
 		
-		if (number > 99999999 || number.length > 8) {
+		if (number > 99999999 || number < -9999999 || number.length > 8) {
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
 		} else if ( number % 1 != 0 ) {
