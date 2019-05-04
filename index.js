@@ -9,7 +9,6 @@
 		}
 	}
 
-
 	// Set variables
 	var window = el('#window'),
 			equals = el('#equals'),
@@ -19,7 +18,6 @@
 			secondNum = "",
 			result = null,
 			operator = "";
-
 	
 	// Click event functions
 	var setNum = function() {
@@ -27,7 +25,6 @@
 			
 			display(secondNum);
 	}
-
 
 	// Detect which function key was pressed
 	var setOperator = function() {
@@ -38,7 +35,6 @@
 		secondNum = '';
 		display(secondNum);
 	}
-
 
 	// Evaluate results based on function key pressed
 	var evaluateResult = function() {
@@ -68,10 +64,10 @@
 			} 
 
 			secondNum = '';
+			operator = '';
 			display(result);
 		}
 	}
-
 
 	// C button clear function clears last value
 	var clr = function() {
@@ -90,7 +86,6 @@
 		display(secondNum);
 	}
 
-
 	// AC button clears all values
 	var clrAll = function() {
 		firstNum = '';
@@ -100,7 +95,6 @@
 
 		display(secondNum);
 	}
-
 
 	// Set click events for all elements
 	for (let i = 0; i < nums.length; i++) {
@@ -117,7 +111,6 @@
 
 	el('#clear-all').onclick = clrAll;
 
-
 	// Display values
 	function display(number) {
 		
@@ -126,7 +119,7 @@
 			setTimeout(clrAll, 3000);
 		} else if ( number % 1 != 0 ) {
 			integer = Math.floor(number);
-			
+
 			if (integer.toString().length < 7) {
 				decimal = "." + (number % 1).toString().slice(2, 9 - integer.toString().length);
 			} else {
