@@ -48,10 +48,9 @@ body {
 	vertical-align: middle;
 	line-height: 50px;
 	height: 50px;
-	/* border: 1px solid black; */
 	border-radius: 5px; 
 	font-size: 35px;
-	box-shadow: 0 8px 6px -6px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.15);
+	box-shadow: 0 6px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.15);
 }
 
 .button{
@@ -62,6 +61,11 @@ body {
 .big-button {
 	width: 45%;
 	background-color: rgba(255,30,30,0.4);
+}
+
+.button:active, .big-button:active {
+	transform: translateY(4px);
+	box-shadow: 0 2px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.15);
 }
 
 .operator {
