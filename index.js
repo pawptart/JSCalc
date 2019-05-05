@@ -25,7 +25,9 @@
 
 			if (secondNum == ".") {
 				secondNum = "0.";
-			} 	
+			} else if ( secondNum.match(/\./g) != null && secondNum.match(/\./g).length > 1 ) {
+				secondNum = "error";
+			} 
 			
 			display(secondNum);
 	}
@@ -44,7 +46,9 @@
 	var evaluateResult = function() {
 		if (firstNum.length > 0 && secondNum.length > 0 && operator != '') {
 			firstNum = parseFloat(firstNum);
+			console.log(firstNum);
 			secondNum = parseFloat(secondNum);
+			console.log(secondNum);
 
 			switch (operator) {
 				case '+': 
@@ -60,10 +64,10 @@
 					result = firstNum * secondNum;
 					break;
 				default:
-					result = "error!";
+					result = "error";
 			} 
 
-			if (result != "error!") {
+			if (result != "error") {
 				firstNum = result.toString();
 			} 
 
@@ -79,12 +83,12 @@
 			secondNum = firstNum;
 			firstNum = '';
 			operator = '';
-			result = '';
+			result = null;
 		} else {
 			secondNum = '';
 			firstNum = '';
 			operator = '';
-			result = '';
+			result = null;
 		}
 
 		display(secondNum);
@@ -95,7 +99,7 @@
 		firstNum = '';
 		secondNum = '';
 		operator = '';
-		result = 0;
+		result = null;
 
 		display(secondNum);
 	}
@@ -117,14 +121,16 @@
 
 	// Display values
 	function display(number) {
-		
-		if (number > 99999999 || number < -9999999 || number.length > 8) {
+
+		if (number == "error") {
+			window.innerText = number;
+			setTimeout(clrAll, 3000);
+		} else if (number > 99999999 || number < -9999999 || number.length > 8) {
 			window.innerText = "overflow";
 			setTimeout(clrAll, 3000);
 		} else if ( number % 1 != 0 ) {
 			number = number.toString().slice(0, 8);
 			window.innerText = number;
-			
 		} else {
 			window.innerText = number;
 		}
